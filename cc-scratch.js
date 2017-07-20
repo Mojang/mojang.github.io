@@ -194,11 +194,6 @@ function createBlockPos(x, y, z, isRelative) {
         client.async_command(command, callback, "success");
     }
 
-    ext.executeDetect = function (command, origin, isRelative, x, y, z, detectBlock, detectData, detectIsRelative, detectX, detectY, detectZ, callback) {
-        var command = `executedetect?origin=${encodeURIComponent(origin)}&position=${createBlockPos(x, y, z, isRelative)}&detectPos=${createBlockPos(detectX, detectY, detectZ, detectIsRelative)}&detectBlock=${detectBlock}&detectData=${detectData}&command=${command}`;
-        client.async_command(command, callback, "success");
-    }
-
     ext.executeAsOther = function (command, origin, isRelative, x, y, z, callback) {
         var command = `executeasother?origin=${encodeURIComponent(origin)}&position=${createBlockPos(x, y, z, isRelative)}&command=${command}`;
         client.async_command(command, callback, "success");
@@ -318,7 +313,6 @@ function createBlockPos(x, y, z, isRelative) {
             ['b', 'Detect Redstone at %m.sixDirections', 'detectRedstone', 'forward'],
             ['w', 'Clone blocks from %m.positionType position %n %n %n to %m.positionType position %n %n %n to %m.positionType position %n %n %n', 'clone', 'relative', 1, 1, 1, 'relative', 1, 1, 1, 'relative', 1, 1, 1],
             ['w', 'Execute command %s on behalf of %s at %m.positionType position %n %n %n', 'executeAsOther', ' ', ' ', 'relative', 1, 1, 1],
-            ['w', 'Execute command %s on behalf of %s at %m.positionType position %n %n %n if a blocktype %s with data %n detected at %m.positionType position %n %n %n', 'executeDetect', ' ', ' ', 'relative', 1, 1, 1, ' ', ' ', 'relative', 1, 1, 1],
             ['w', 'Fill from %m.positionType position %n %n %n to %m.positionType position %n %n %n with %s using tile data %n', 'fill', 'relative', 1, 1, 1, 'relative', 1, 1, 1, ' ', 0],
             ['w', 'Give %n item(s) %s to target %s', 'give', 1, ' ', ' '],
             ['w', 'Kill target %s', 'kill', ' '],
